@@ -1,0 +1,29 @@
+{
+  "bot_id": "hu-banks",
+  "title": "Hungarian financial licences",
+  "description": "This bot collects data on Hungarian financial market participants as licensed by the National Bank of Hungary",
+  "language": "python",
+  "data_type": "primary data",
+  "identifying_fields": [
+    "Identifier"
+  ],
+  "files": [
+    "scraper.py", "licence.py"
+  ],
+  "frequency": "monthly",
+  "publisher": {
+    "name": "Magyar Nemezeti Bank",
+    "url": "https://www.mnb.hu/en",
+    "terms": "Copyright",
+    "terms_url": "https://www.mnb.hu/en/the-central-bank/terms-of-use"
+  },
+  "transformers": [
+    {
+      "file": "licence.py",
+      "data_type": "licence",
+      "identifying_fields": [
+        "licence_number", "permissions"
+      ]
+    }
+  ]
+}
