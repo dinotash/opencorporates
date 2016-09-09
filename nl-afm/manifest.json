@@ -1,0 +1,35 @@
+{
+  "bot_id": "nl-afm-licences",
+  "title": "Dutch Financial Market Authority",
+  "description": "This bot returns data on auditors, investment funds, investment firms, financial service providers, clearing houses and trading platforms regulated by the Dutch Financial Market Authority (AFM)",
+  "language": "python",
+  "data_type": "primary data",
+  "identifying_fields": [
+    "name", "category", "licence_number", "country", "source_url"
+  ],
+  "files": [
+    "scraper.py", "licence.py"
+  ],
+  "frequency": "monthly",
+  "publisher": {
+    "name": "Netherlands Authority for the Financial Markets (AFM)",
+    "url": "http://www.afm.nl",
+    "terms": "The AFM reserves copyright to this website. The information on this website may not be taken over and/or disseminated, in whole or in part, and in any way, unless with the explicit indication of the AFM as reference.",
+    "terms_url": "http://www.afm.nl/en/professionals/disclaimer"
+  },
+  "transformers": [
+    {
+      "file": "licence.py",
+      "data_type": "licence",
+      "identifying_fields": [
+        "licence_holder.entity_properties.name",
+        "licence_issuer.jurisdiction",
+        "licence_issuer.name",
+        "licence_number",
+        "licence_holder.entity_properties.jurisdiction",
+        "permissions"
+      ]
+    }
+  ],
+  "duplicates_allowed": "true"
+}
