@@ -1,0 +1,30 @@
+{
+  "bot_id": "cy-licences",
+  "title": "Cyprus Financial Licences",
+  "description": "This bot collects information on companies licensed to carry out financial activities in Cyprus",
+  "language": "python",
+  "data_type": "primary data",
+  "identifying_fields": [
+    "name", "category"
+  ],
+  "files": [
+    "scraper.py", "licence.py"
+  ],
+  "frequency": "monthly",
+  "publisher": {
+    "name": "Cyprus Securities and Exchange Commission",
+    "url": "http://www.cysec.gov.cy/en-GB/home/",
+    "terms": "Copyright, all rights reserved",
+    "terms_url": "tp://www.cysec.gov.cy/en-GB/home/"
+  },
+  "duplicates_allowed": "true",
+  "transformers": [
+    {
+      "file": "licence.py",
+      "data_type": "licence",
+      "identifying_fields": [
+        "licence_holder.entity_properties.name", "permissions"
+      ]
+    }
+  ]
+}
